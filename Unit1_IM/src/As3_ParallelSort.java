@@ -1,5 +1,5 @@
     import java.util.Arrays;
-//bruh
+
     public class As3_ParallelSort {
 
         public static String[] allNames = MyFiles.loadStringArr("IntelliJ_DataSet/Movies/Names.txt");
