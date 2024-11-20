@@ -47,6 +47,31 @@ if(hasDog){
 
     }//mowLawn function
 
+    public void setHasDog(boolean hasDog) {
+        this.hasDog = hasDog;
+    }
+
+    public void processPayment(double dollars){
+        outstandingFees-=dollars;
+        System.out.println(name + " you currently owe $" + outstandingFees);
+    }
+
+
+    public String getName() {
+        return name;
+    }
+
+
+
+    public void delinquent(){
+        double interest = 5+ outstandingFees *.1;
+        System.out.println(name + " your payment is overdue, you have been charged interest of " + interest);
+        outstandingFees += interest;
+        if(outstandingFees>500 && hasDog){
+            hasDog = false;
+
+        }
+    }
 
 
 }//Ex3_Client Class
