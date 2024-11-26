@@ -2,6 +2,7 @@ package Examples;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.io.*;
 
 
 public class Ex3_LawnMain {
@@ -12,6 +13,7 @@ public class Ex3_LawnMain {
 
         ArrayList<Ex3_Client> allClients = new ArrayList<>();
 
+         loadFile("Data/ClientData.csv",allClients);
         allClients.add(  new Ex3_Client( "McDavid", "100 Maple Dr", 1000, false )   );
         allClients.add(  new Ex3_Client( "Draisaitl", "102 Maple Dr", 600, true )   );
         allClients.add(  new Ex3_Client( "Nug-Hop","50 Main Street ", 600, false )   );
@@ -71,6 +73,8 @@ public class Ex3_LawnMain {
 
             } else {
 
+                saveFile("data/ClientData.csv",allClients);
+
                 break;
             }
         } // while
@@ -89,5 +93,56 @@ public class Ex3_LawnMain {
         }
         return -1;
     }
+
+
+    public static void loadFile(String filename, ArrayList<Ex3_Client> list ) {
+
+        try {
+            BufferedReader file = new BufferedReader(new FileReader(filename));
+
+            String dataToRead;
+            while( file.ready()){
+                dataToRead = file.readLine();
+
+                String tempArray[] = dataToRead.split(",");
+
+                list.add( new Ex3_Client(  tempArray[0],tempArray[1], Integer.parseInt(tempArray[2]),Boolean.parseBoolean(tempArray[3]), Double.parseDouble(tempArray[4])   ));
+
+            }
+        }
+        catch (IOException e) {
+            System.out.println(e);
+        }
+    }//end loadFile
+
+//-----------------------SAVE FILE-----------------------------------------------------------------------|
+
+    public static void saveFile(String filename, ArrayList <Ex3_Client> tempList ) {
+        try {
+            PrintWriter file = new PrintWriter(new FileWriter(filename));
+
+            for (int i = 0; i < tempList.size(); i++) {
+//the next lines are customized for whatever data you are getting.
+                String toSave ="";
+                toSave = tempList.get(i).getName();  //assumes getter method are used for private variables
+                toSave +="," + tempList.get(i).getAddress();
+                toSave += "," + tempList.get(i).getLawnSize();
+                toSave +="," + tempList.get(i).getHasDog();
+                toSave +="," + tempList.get(i).getOutstandingFees();
+
+//The above 6 lines could be replaced by a call to a carefully made toString() function
+
+                file.println(toSave);
+
+            }
+            file.close();
+        }
+        catch (IOException ex) {
+            System.out.println(ex.toString());
+        }
+
+    }//end saveFile
+
+
 
 }//LawnMain

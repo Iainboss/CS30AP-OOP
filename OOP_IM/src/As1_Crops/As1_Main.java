@@ -31,7 +31,7 @@ allCrops.get(4).setAcres(50);
 
             while(true) {
 
-                System.out.println("Press 1 to print all crops\nPress 2 to search and harvest a crop\nPress 3 to print total revenue\nPress 4 to exit.");
+                System.out.println("Press 1 to print all crops\nPress 2 to search and harvest a crop\nPress 3 to print total revenue\nPress 4 to plant crops\nPress 5 to exit");
                 int choice = Library.input.nextInt();
                 Library.input.nextLine();
 
@@ -59,12 +59,49 @@ totalRevenue+=allCrops.get(foundCrop).harvest();
                     System.out.println("The total revenue from all harvested crops is $" +totalRevenue);
                 }
                 if (choice == 4) {
+                    System.out.println("What crop would you like to plant?");
+                    String answer = Library.input.nextLine();
+                    int foundIndex = searchByName(allCrops, answer);
+                    if(foundIndex == -1){
+                        System.out.println("No crop found. Planting a new crop");
+
+                        System.out.println("What is the name of the crop you are planting");
+                        String newName = Library.input.nextLine();
+
+                        System.out.println("What unit of measurement is used for this crop?");
+                        String newUnit = Library.input.nextLine();
+
+                        System.out.println("How many units can you yield per acre of land of this crop?");
+                        double newYield = Library.input.nextDouble();
+
+                        System.out.println("How much does one unit of this crop sell for?");
+                        double newPrice = Library.input.nextDouble();
+
+
+                        allCrops.add(new As1_Crop(newName, newYield,newUnit, newPrice));
+                        allCrops.get( allCrops.size()-1).setAcres(0);
+                        System.out.println("Your crop has been added. How many acres would you like to plant?");
+                        int numAcres = Library.input.nextInt();
+
+                        allCrops.get(allCrops.size()-1).plantCrops(numAcres);
+                       System.out.println("Planted!");
+
+                    }else {
+      System.out.println("How many acres would you like to plant?");
+      int numAcres = Library.input.nextInt();
+      allCrops.get(foundIndex).plantCrops(numAcres);
+
+                    }
+                }
+
+                if(choice==5){
+                    System.out.println("Exiting crop menu...");
                     break;
                 }
-                System.out.println();
+
 
             }//while
-
+        System.out.println("Exited");
         }
 
 

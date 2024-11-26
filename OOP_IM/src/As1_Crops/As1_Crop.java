@@ -44,4 +44,11 @@ acres=0;
 return soldFor;
     }
 
+    public void plantCrops(int numPlanting){
+acres += numPlanting;
+System.out.println(numPlanting + " acres of " + name + " were planted");
+
+    }
+
+
 }

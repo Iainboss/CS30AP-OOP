@@ -22,6 +22,18 @@ public class Ex3_Client {
 
     }//constructor
 
+
+
+    public Ex3_Client(String n, String a, int l, boolean b, double f){
+        name = n;
+        address = a;
+        lawnSize= l;
+        hasDog = b;
+        outstandingFees=f;
+
+
+    }//constructor
+
     public String toString(){
         return name + "   " + address + "   " + lawnSize + "   " + hasDog + "   " + outstandingFees;
     }//toString
@@ -73,6 +85,22 @@ if(hasDog){
         }
     }
 
+    public String getAddress() {
+        return address;
+    }
 
+    public int getLawnSize() {
+        return lawnSize;
+    }
+
+
+    //When you auto generate booleans, they often change to is, instead of getHasDog it changed to isHasDog. This can be changed.
+    public boolean getHasDog() {
+        return hasDog;
+    }
+
+    public double getOutstandingFees() {
+        return outstandingFees;
+    }
 }//Ex3_Client Class
 
