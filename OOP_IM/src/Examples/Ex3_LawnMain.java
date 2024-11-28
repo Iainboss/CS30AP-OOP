@@ -8,23 +8,22 @@ import java.io.*;
 public class Ex3_LawnMain {
 
 
-    public static void run(){
+    public static void run() {
 
 
         ArrayList<Ex3_Client> allClients = new ArrayList<>();
 
-         loadFile("Data/ClientData.csv",allClients);
-        allClients.add(  new Ex3_Client( "McDavid", "100 Maple Dr", 1000, false )   );
-        allClients.add(  new Ex3_Client( "Draisaitl", "102 Maple Dr", 600, true )   );
-        allClients.add(  new Ex3_Client( "Nug-Hop","50 Main Street ", 600, false )   );
-        allClients.add(  new Ex3_Client( "Skinner", "10450 82 Avenue", 300, true )   );
-        allClients.add(  new Ex3_Client( "Podkulzin", "5 Putin Lane", 200, false )   );
+        loadFile("Data/ClientData.csv", allClients);
+        allClients.add(new Ex3_Client("McDavid", "100 Maple Dr", 1000, false));
+        allClients.add(new Ex3_Client("Draisaitl", "102 Maple Dr", 600, true));
+        allClients.add(new Ex3_Client("Nug-Hop", "50 Main Street ", 600, false));
+        allClients.add(new Ex3_Client("Skinner", "10450 82 Avenue", 300, true));
+        allClients.add(new Ex3_Client("Podkulzin", "5 Putin Lane", 200, false));
 
 //        for (Ex3_Client clientTemp: allClients) {
 //System.out.println(clientTemp);
 ////System.out.println(allClients.get(i) );     //For Regular fori loops
 //        }
-
 
 
         System.out.println("Welcome to Moe's Mowing");
@@ -66,14 +65,14 @@ public class Ex3_LawnMain {
 
             } else if (choice == 5) {
 //delinquent payment
-                for (Ex3_Client clientTemp: allClients ) {
+                for (Ex3_Client clientTemp : allClients) {
                     clientTemp.delinquent();
                 }
 
 
             } else {
 
-                saveFile("data/ClientData.csv",allClients);
+                saveFile("data/ClientData.csv", allClients);
 
                 break;
             }
@@ -81,13 +80,12 @@ public class Ex3_LawnMain {
         System.out.println("There is no use moanin as there is no mow like Moe's mowin.  \nGood bye.");
 
 
-
     }//run
 
 
-    public static int searchByName( ArrayList<Ex3_Client> list, String searchTerm){
+    public static int searchByName(ArrayList<Ex3_Client> list, String searchTerm) {
         for (int i = 0; i < list.size(); i++) {
-            if(searchTerm.equalsIgnoreCase(list.get(i).getName())){
+            if (searchTerm.equalsIgnoreCase(list.get(i).getName())) {
                 return i;
             }
         }
@@ -95,40 +93,39 @@ public class Ex3_LawnMain {
     }
 
 
-    public static void loadFile(String filename, ArrayList<Ex3_Client> list ) {
+    public static void loadFile(String filename, ArrayList<Ex3_Client> list) {
 
         try {
             BufferedReader file = new BufferedReader(new FileReader(filename));
 
             String dataToRead;
-            while( file.ready()){
+            while (file.ready()) {
                 dataToRead = file.readLine();
 
                 String tempArray[] = dataToRead.split(",");
 
-                list.add( new Ex3_Client(  tempArray[0],tempArray[1], Integer.parseInt(tempArray[2]),Boolean.parseBoolean(tempArray[3]), Double.parseDouble(tempArray[4])   ));
+                list.add(new Ex3_Client(tempArray[0], tempArray[1], Integer.parseInt(tempArray[2]), Boolean.parseBoolean(tempArray[3]), Double.parseDouble(tempArray[4])));
 
             }
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             System.out.println(e);
         }
     }//end loadFile
 
 //-----------------------SAVE FILE-----------------------------------------------------------------------|
 
-    public static void saveFile(String filename, ArrayList <Ex3_Client> tempList ) {
+    public static void saveFile(String filename, ArrayList<Ex3_Client> tempList) {
         try {
             PrintWriter file = new PrintWriter(new FileWriter(filename));
 
             for (int i = 0; i < tempList.size(); i++) {
 //the next lines are customized for whatever data you are getting.
-                String toSave ="";
+                String toSave = "";
                 toSave = tempList.get(i).getName();  //assumes getter method are used for private variables
-                toSave +="," + tempList.get(i).getAddress();
+                toSave += "," + tempList.get(i).getAddress();
                 toSave += "," + tempList.get(i).getLawnSize();
-                toSave +="," + tempList.get(i).getHasDog();
-                toSave +="," + tempList.get(i).getOutstandingFees();
+                toSave += "," + tempList.get(i).getHasDog();
+                toSave += "," + tempList.get(i).getOutstandingFees();
 
 //The above 6 lines could be replaced by a call to a carefully made toString() function
 
@@ -136,8 +133,7 @@ public class Ex3_LawnMain {
 
             }
             file.close();
-        }
-        catch (IOException ex) {
+        } catch (IOException ex) {
             System.out.println(ex.toString());
         }
 
