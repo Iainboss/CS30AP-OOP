@@ -1,5 +1,9 @@
 package Examples;
 
+import As1_Crops.As1_Crop;
+
+import java.util.ArrayList;
+
 public class Search {
 
     //Binary Search
@@ -138,6 +142,18 @@ public class Search {
         }
     }//End
     //THIS ALGORITHM WAS TAKEN FROM https://stackoverflow.com/questions/62046255/using-bubble-sort-to-alphabetically-sort-array-of-names-in-java
+
+
+
+
+    public static int searchByName(ArrayList<As1_Crop> list, String searchTerm){
+        for (int i = 0; i < list.size(); i++) {
+            if(searchTerm.equalsIgnoreCase(list.get(i).getName())){
+                return i;
+            }
+        }
+        return -1;
+    }
 }
 
 

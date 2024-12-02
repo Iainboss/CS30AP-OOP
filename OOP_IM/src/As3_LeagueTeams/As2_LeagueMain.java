@@ -1,6 +1,5 @@
 package As3_LeagueTeams;
 
-import Examples.Ex3_Client;
 import Examples.Library;
 
 import java.io.BufferedReader;
@@ -19,7 +18,7 @@ public static void run(){
 
     while(true) {
 
-        System.out.println("Press 1 for rock\nPress 2 to for country\nPress 3 for jazzy grooves\nPress 4 to exit.");
+        System.out.println("Press 1 to print all teams\nFind highest or lowest team\nPress 3 to view spot in the field\nPress 4 to update team stats.");
         int choice = Library.input.nextInt();
         Library.input.nextLine();
 
@@ -30,19 +29,34 @@ public static void run(){
 
         }
         if (choice == 2) {
-            System.out.println("Yeehaw!");
+            System.out.println("Not yet implemented! (Ask couprie)");
         }
         if (choice == 3) {
-            System.out.println("Cool dadio!");
+           System.out.println("What team would you like to view the standing for?");
+           String answer = Library.input.nextLine();
+           int foundIndex = searchByName(allTeams, answer);
+if(foundIndex == -1){
+    System.out.println("Team not found. Try again later");
+}else {
+    allTeams.get(foundIndex).findField();
+}
+
         }
         if (choice == 4) {
-            break;
+            System.out.println("What team would you like to update the stats for?");
+            String answer = Library.input.nextLine();
+            int foundIndex = searchByName(allTeams, answer);
+            if(foundIndex == -1){
+                System.out.println("Team not found. Try again later");
+            }else {
+                allTeams.get(foundIndex).updateStats();
+            }
+
         }
-        System.out.println();
 
     }//while
 
-    System.out.println("Good bye");
+
 
 
 
@@ -75,5 +89,15 @@ public static void run(){
         }
     }//end loadFile
 
+
+
+    public static int searchByName(ArrayList<As2_Team> list, String searchTerm){
+        for (int i = 0; i < list.size(); i++) {
+            if(list.get(i).getName().toLowerCase().contains(searchTerm.toLowerCase())){
+return i;
+            }
+        }
+        return -1;
+    }
 
 }

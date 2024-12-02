@@ -11,6 +11,7 @@ public class Main {
 //        Ex3_LawnMain.run();
 //        As1_Main.run();
         As2_LeagueMain.run();
+//As1_Main.run();
 
     }
 
