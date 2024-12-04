@@ -18,7 +18,7 @@ public static void run(){
 
     while(true) {
 
-        System.out.println("Press 1 to print all teams\nFind highest or lowest team\nPress 3 to view spot in the field\nPress 4 to update team stats.");
+        System.out.println("Press 1 to print all teams\nFind highest or lowest team\nPress 3 to view spot in the field\nPress 4 to update team stats\nPress 5 to sort teams by position");
         int choice = Library.input.nextInt();
         Library.input.nextLine();
 
@@ -43,16 +43,76 @@ if(foundIndex == -1){
 
         }
         if (choice == 4) {
-            System.out.println("What team would you like to update the stats for?");
-            String answer = Library.input.nextLine();
-            int foundIndex = searchByName(allTeams, answer);
-            if(foundIndex == -1){
-                System.out.println("Team not found. Try again later");
-            }else {
-                allTeams.get(foundIndex).updateStats();
-            }
+            System.out.println("Would you like to update a teams position?");
+            String response = Library.input.nextLine();
+            if(response.toLowerCase().contains("yes")){
+                System.out.println("What team would you like to change the position for?");
+                 String teamChange = Library.input.nextLine();
 
+                int foundTeam = searchByName(allTeams, teamChange);
+
+                 if(foundTeam==-1){
+                     System.out.println("Sorry team not found");
+
+                 }else{
+
+                     System.out.println(allTeams.get(foundTeam).getName() + " is currenty #" + allTeams.get(foundTeam).getPosition() + " what position are they now?");
+
+                     int newPos = Library .input.nextInt();
+                     Library.input.nextLine();
+
+                     if(newPos<=10){
+                         allTeams.get(foundTeam).setPosition(newPos);
+
+                         for (int i = 0; i < allTeams.size(); i++) {
+                             if(allTeams.get(i).getPosition() <allTeams.get(foundTeam).getPosition() ){
+
+                             }
+                         }
+
+
+                     }
+                 }
+
+
+            }else {
+                System.out.println("What team would you like to update the stats for?");
+                String answer = Library.input.nextLine();
+                int foundIndex = searchByName(allTeams, answer);
+                if (foundIndex == -1) {
+                    System.out.println("Team not found. Try again later");
+                } else {
+                    allTeams.get(foundIndex).updateStats();
+                }
+            }
         }
+if(choice == 5){
+    System.out.println("Sorting by position in the championship ");
+
+    for(int i=0; i<allTeams.size()-1; i++){
+        int lowestIndex = i;
+        for(int j=i+1; j<allTeams.size(); j++){
+            if(allTeams.get(j).getPosition() < allTeams.get(lowestIndex).getPosition() ){
+                lowestIndex = j;
+
+
+                As2_Team tempTeam = allTeams.get(i);
+                allTeams.set(i, allTeams.get(lowestIndex) );
+                allTeams.set(lowestIndex, tempTeam);
+
+
+
+
+            }
+        }
+
+    }
+}
+
+        for (int i = 0; i < allTeams.size(); i++) {
+            allTeams.get(i).printStandings();
+        }
+
 
     }//while
 

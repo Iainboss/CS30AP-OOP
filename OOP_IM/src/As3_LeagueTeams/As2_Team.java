@@ -37,23 +37,34 @@ value = v;
     }
 
 public void updateStats(){
-    System.out.println("What stat would you like to update?");
-String answer = Library.input.nextLine();
+System.out.println("What stat would you like to update? Press 1 for name, 2 for location or 3 for world championships.");
+int answer = Library.input.nextInt();
+Library.input.nextLine();
+if(answer ==1){
+    System.out.println("You are updating the team name, the current name is " + name + " what is the new name?");
+    String newName = Library.input.nextLine();
+    System.out.println(name + " will be changed to " + newName);
+    name = newName;
+}
+else if( answer == 2){
+    System.out.println("You are updating the team's location. They are currently based in " + location + " where are they now?");
+    String newLocation = Library.input.nextLine();
+    System.out.println(name + "'s location will be changed to "+ newLocation);
+    location = newLocation;
+}
+else if(answer ==3){
+    System.out.println("You are updating the number of world championships for this team. They currently have " + championships + " how many do they have now?");
+    int newChampionships = Library.input.nextInt();
+    System.out.println(name + " now has " + newChampionships + " championships");
+    championships = newChampionships;
+}
 
-if(answer.toLowerCase().contains("position")){
-    System.out.println("You are updating the team's position in the championship. They are currently #" + position+ ". What position are they now?" );
-   int newPos = Library.input.nextInt();
-   if(newPos<=10){
-       position = newPos;
-       System.out.println("Position updated. " + name + " is now #" + position + " in the championship" );
-
-   }else {
-       System.out.println("Cannot place a team lower than 10th.");
-   }
 
 }
-}
 
+public void printStandings(){
+    System.out.println(position + " " + name);
+}
 
     public String getName() {
         return name;
@@ -77,5 +88,10 @@ if(answer.toLowerCase().contains("position")){
 
     public double getValue() {
         return value;
+    }
+
+
+    public void setPosition(int position) {
+        this.position = position;
     }
 }//Team
