@@ -13,7 +13,7 @@ public class As2_LeagueMain {
         ArrayList<As2_Team> allTeams = new ArrayList<>();
 
         loadFile("Data/F1Teams.csv", allTeams);
-
+//        allTeams.get(0).setName(  allTeams.get(0).getName().substring(1));
 
         while (true) {
 
@@ -21,9 +21,13 @@ public class As2_LeagueMain {
             int choice = Library.input.nextInt();
             Library.input.nextLine();
 
+
+
             if (choice == 1) {
                 for (int i = 0; i < allTeams.size(); i++) {
-                    System.out.println(allTeams.get(i).getPosition() + " " + allTeams.get(i));
+//                    System.out.println(allTeams.get(i).getPosition() + " " + allTeams.get(i));
+                    System.out.println(allTeams.get(i));
+
                 }
 
             }
@@ -140,7 +144,7 @@ System.out.println("Sorry this feature is bugging rn");
             }
 if(choice==6){
     System.out.println("Saved and exiting...");
-    saveFile("Data/SavedF1Teams.csv", allTeams);
+    saveFile("Data/F1Teams.csv", allTeams);
 break;
 }
 
@@ -162,7 +166,7 @@ System.out.println("Exited");
                 dataToRead = file.readLine();
 
                 String tempArray[] = dataToRead.split(",");
-
+//                System.out.println(tempArray[0]);
                 list.add(new As2_Team(tempArray[0], tempArray[1], tempArray[2], Integer.parseInt(tempArray[3]), Integer.parseInt(tempArray[4]), Double.parseDouble(tempArray[5]), Double.parseDouble(tempArray[6])));
 
             }
@@ -192,7 +196,6 @@ System.out.println("Exited");
 //the next lines are customized for whatever data you are getting.
                 String toSave = "";
                 toSave = tempList.get(i).getName();  //assumes getter method are used for private variables
-                toSave += "," + tempList.get(i).getName();
                 toSave += "," + tempList.get(i).getLocation();
                 toSave += "," + tempList.get(i).getTypStanding();
                 toSave += "," + tempList.get(i).getChampionships();

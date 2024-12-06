@@ -18,6 +18,7 @@ private double pitTime;
 public As2_Team(String n, String l, String t, int p, int c, double v, double pT){
 
 name = n;
+
 location = l;
 TypStanding = t;
 position = p;
@@ -104,6 +105,10 @@ public void printStandings(){
 
     public void setPosition(int position) {
         this.position = position;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public double getPitTime() {
