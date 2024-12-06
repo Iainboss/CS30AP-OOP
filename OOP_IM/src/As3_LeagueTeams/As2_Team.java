@@ -12,8 +12,10 @@ private int  position;
 private int championships;
 private double value;
 
+private double pitTime;
 
-public As2_Team(String n, String l, String t, int p, int c, double v){
+
+public As2_Team(String n, String l, String t, int p, int c, double v, double pT){
 
 name = n;
 location = l;
@@ -21,11 +23,12 @@ TypStanding = t;
 position = p;
 championships = c;
 value = v;
+pitTime = pT;
 
 }
 
     public String toString(){
-        return name;
+        return name ;
     }//toString
 
 
@@ -37,7 +40,7 @@ value = v;
     }
 
 public void updateStats(){
-System.out.println("What stat would you like to update? Press 1 for name, 2 for location or 3 for world championships.");
+System.out.println("What stat would you like to update? Press 1 for name, 2 for location, 3 for world championships or 4 for team value");
 int answer = Library.input.nextInt();
 Library.input.nextLine();
 if(answer ==1){
@@ -57,6 +60,14 @@ else if(answer ==3){
     int newChampionships = Library.input.nextInt();
     System.out.println(name + " now has " + newChampionships + " championships");
     championships = newChampionships;
+}
+else if(answer ==4){
+    System.out.println("You are updating the team's value, they are currently worth " + value + " billion dollars, how much are they worth now? (In billions)");
+    double newValue = Library.input.nextDouble();
+    System.out.println(name + " is now worth " + newValue + " billion dollars");
+    value = newValue;
+
+
 }
 
 
@@ -93,5 +104,9 @@ public void printStandings(){
 
     public void setPosition(int position) {
         this.position = position;
+    }
+
+    public double getPitTime() {
+        return pitTime;
     }
 }//Team
