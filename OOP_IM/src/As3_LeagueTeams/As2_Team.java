@@ -1,6 +1,7 @@
 package As3_LeagueTeams;
 
 import Examples.Library;
+import java.util.ArrayList;
 
 public class As2_Team {
 
@@ -13,6 +14,8 @@ private int championships;
 private double value;
 
 private double pitTime;
+
+    private ArrayList<As2_Player> allPlayers = new ArrayList<>();
 
 
 public As2_Team(String n, String l, String t, int p, int c, double v, double pT){
@@ -29,7 +32,7 @@ pitTime = pT;
 }
 
     public String toString(){
-        return name ;
+        return name + " is currently #" + position;
     }//toString
 
 
@@ -113,5 +116,33 @@ public void printStandings(){
 
     public double getPitTime() {
         return pitTime;
+    }
+
+
+
+    public void addPlayer(String n, int i, int p, double s){
+
+    allPlayers.add(new As2_Player(n,i,p,s));
+    }
+
+    public void printPlayers(){
+        for (int i = 0; i < allPlayers.size(); i++) {
+            System.out.println( name + ": " +allPlayers.get(i).toString());
+        }
+    }
+
+    public void totalPoints(){
+
+    int totalPoints = 0;
+        for (int i = 0; i < allPlayers.size(); i++) {
+            totalPoints += allPlayers.get(i).getPoints();
+
+        }
+        System.out.println(name + " has " + totalPoints + " total points.");
+    }
+
+
+    public ArrayList<As2_Player> getAllPlayers() {
+        return allPlayers;
     }
 }//Team

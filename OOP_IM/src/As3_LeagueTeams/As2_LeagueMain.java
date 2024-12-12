@@ -12,12 +12,18 @@ public class As2_LeagueMain {
 
         ArrayList<As2_Team> allTeams = new ArrayList<>();
 
+
         loadFile("Data/F1Teams.csv", allTeams);
 //        allTeams.get(0).setName(  allTeams.get(0).getName().substring(1));
 
+        allTeams.add(new As2_Team("Red Bull Racing", "Milton Keynes - UK", "TopField", 1,5,2.3,2.4) );
         while (true) {
 
-            System.out.println("Press 1 to print all teams\nPress 2 to calculat the average team value\nPress 3 to view spot in the field\nPress 4 to update team stats\nPress 5 to sort teams by position\nPress 6 to save and exit");
+allTeams.get(0).addPlayer("Max Verstappen", 01, 398, 22.3);
+allTeams.get(0).addPlayer("Sergio Perez",11,200,15.4 );
+
+
+            System.out.println("Press 1 to print all teams\nPress 2 to calculate the average team value\nPress 3 to view spot in the field\nPress 4 to update team stats\nPress 5 to sort teams by position\nPress 6 to display players\nPress 7 to display all team info\nPress 8 to update player stats\nPress 9 to save and exit");
             int choice = Library.input.nextInt();
             Library.input.nextLine();
 
@@ -26,7 +32,7 @@ public class As2_LeagueMain {
             if (choice == 1) {
                 for (int i = 0; i < allTeams.size(); i++) {
 //                    System.out.println(allTeams.get(i).getPosition() + " " + allTeams.get(i));
-                    System.out.println(allTeams.get(i));
+                    System.out.println(allTeams.get(i).toString());
 
                 }
 
@@ -142,7 +148,51 @@ System.out.println("Sorry this feature is bugging rn");
                     allTeams.get(i).printStandings();
                 }
             }
-if(choice==6){
+
+            if(choice == 6){
+
+            System.out.println("What team would you like to search players for?");
+            String answer = Library.input.nextLine();
+
+            int foundIndex = searchByName(allTeams, answer);
+
+            if(foundIndex == -1){
+                System.out.println("Team not found. Try again.");
+            }else {
+                allTeams.get(foundIndex).printPlayers();
+            }
+
+            }
+
+            if(choice ==7){
+                System.out.println("What team would you like to display stats for?");
+                String answer = Library.input.nextLine();
+                int foundIndex = searchByName(allTeams, answer);
+                if(foundIndex == -1){
+                    System.out.println("Team not found, try again later");
+                }else{
+
+                    allTeams.get(foundIndex).toString();
+                    System.out.println("Based in " + allTeams.get(foundIndex).getLocation() + " is typically a " + allTeams.get(foundIndex).getTypStanding()+ " team. Valued at $" + allTeams.get(foundIndex).getValue() + " billion. Currently has " + allTeams.get(foundIndex).getChampionships() + " championships.");
+                    allTeams.get(foundIndex).printPlayers();
+                    allTeams.get(foundIndex).totalPoints();
+                }
+            }
+
+            if(choice ==8){
+                System.out.println("What team is the player you're looking for?");
+                String answer = Library.input.nextLine();
+                int foundTeam = searchByName(allTeams, answer);
+                        if(foundTeam==-1){
+                            System.out.println("Team not found, try again.");
+
+                        }else{
+                            allTeams.get(foundTeam).printPlayers();
+                        System.out.println("What is the name of the player you're looking for?");
+                        String player = Library.input.nextLine();
+                        }
+            }
+if(choice==9){
     System.out.println("Saved and exiting...");
     saveFile("Data/F1Teams.csv", allTeams);
 break;
