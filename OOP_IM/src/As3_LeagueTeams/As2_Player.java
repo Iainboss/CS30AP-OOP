@@ -25,7 +25,7 @@ salary = s;
 
 public String toString(){
 
-    return Pname +" has " + points + " points. Salary is $" + salary + " million. ID#: " + playerID;
+    return Pname +" has " + points + " points. Contract is $" + salary + " million. ID#: " + playerID;
 }
 
     public int getPoints() {

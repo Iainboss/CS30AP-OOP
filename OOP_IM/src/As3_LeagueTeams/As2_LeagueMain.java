@@ -14,58 +14,53 @@ public class As2_LeagueMain {
 
 
         loadFile("Data/F1Teams.csv", allTeams);
-//        allTeams.get(0).setName(  allTeams.get(0).getName().substring(1));
 
-        allTeams.add(new As2_Team("Red Bull Racing", "Milton Keynes - UK", "TopField", 1,5,2.3,2.4) );
-        allTeams.add(new As2_Team("Scuderia Ferrari", "Maranello - ITA", "Top Field", 3, 16, 3.13, 2.9));
-        allTeams.add(new As2_Team("Mercedes AMG", "Brackley - UK", "Top Field", 2, 8, 2.7, 3.18));
-        allTeams.add(new As2_Team("McLaren F1", "Woking - UK", "Mid-Top Field", 4, 8, 1.56, 2.91));
-        allTeams.add(new As2_Team("Aston Martin Racing", "Silverstone - UK", "Mid Field", 5, 0, 1.14, 3.08));
-        allTeams.add(new As2_Team("Williams Racing", "Oxford - IK", "Bottom Field", 7, 9, 0.795, 3.28));
-        allTeams.add(new As2_Team("Haas", "Kannapolis - US", "Bottom Field", 10, 0, 0.71, 4.22));
-        allTeams.add(new As2_Team("Alfa Romeo", "Hinwil - CH", "Bottom Field", 9, 0, 0.815, 3.51));
-        allTeams.add(new As2_Team("AlphaTauri", "Faenza - ITA", "Bottom Field", 8, 0, 0.905, 3.23));
-        allTeams.add(new As2_Team("Alpine F1", "Enstone - UK", "Mid Field", 6, 2, 1.08, 3.19));
-        while (true) {
-//Red Bull
-allTeams.get(0).addPlayer("Max Verstappen", 01, 398, 22.3);
-allTeams.get(0).addPlayer("Sergio Perez",11,200,15.4 );
+
 
 // Ferrari
-            allTeams.get(1).addPlayer("Charles Leclerc", 16, 200, 12.0);
-            allTeams.get(1).addPlayer("Carlos Sainz Jr.", 55, 190, 8.0);
+        allTeams.get(0).addPlayer("Charles Leclerc", 16, 200, 12.0);
+        allTeams.get(0).addPlayer("Carlos Sainz Jr.", 55, 190, 8.0);
 
 //Mercedes
-            allTeams.get(2).addPlayer("Lewis Hamilton", 44, 210, 70.0);
-            allTeams.get(2).addPlayer("George Russell", 63, 185, 8.5);
+        allTeams.get(1).addPlayer("Lewis Hamilton", 44, 210, 70.0);
+        allTeams.get(1).addPlayer("George Russell", 63, 185, 8.5);
 
 // McLaren
-            allTeams.get(3).addPlayer("Lando Norris", 04, 175, 7.5);
-            allTeams.get(3).addPlayer("Oscar Piastri", 81, 160, 4.5);
+        allTeams.get(2).addPlayer("Lando Norris", 04, 175, 7.5);
+        allTeams.get(2).addPlayer("Oscar Piastri", 81, 160, 4.5);
 
 // Aston Martin
-            allTeams.get(4).addPlayer("Fernando Alonso", 14, 220, 18.0);
-            allTeams.get(4).addPlayer("Lance Stroll", 18, 120, 7.0);
+        allTeams.get(3).addPlayer("Fernando Alonso", 14, 220, 18.0);
+        allTeams.get(3).addPlayer("Lance Stroll", 18, 120, 7.0);
 
 // Williams
-            allTeams.get(5).addPlayer("Alex Albon", 23, 125, 3.5);
-            allTeams.get(5).addPlayer("Logan Sargeant", 02, 30, 2.5);
+        allTeams.get(4).addPlayer("Alex Albon", 23, 125, 3.5);
+        allTeams.get(4).addPlayer("Logan Sargeant", 02, 30, 2.5);
 
 // Haas
-            allTeams.get(6).addPlayer("Kevin Magnussen", 20, 110, 5.5);
-            allTeams.get(6).addPlayer("Nico Hülkenberg", 27, 105, 6.0);
+        allTeams.get(5).addPlayer("Kevin Magnussen", 20, 110, 5.5);
+        allTeams.get(5).addPlayer("Nico Hulkenberg", 27, 105, 6.0);
 
 // Alfa Romeo
-            allTeams.get(7).addPlayer("Valtteri Bottas", 77, 95, 8.0);
-            allTeams.get(7).addPlayer("Zhou Guanyu", 24, 90, 4.0);
+        allTeams.get(6).addPlayer("Valtteri Bottas", 77, 95, 8.0);
+        allTeams.get(6).addPlayer("Zhou Guanyu", 24, 90, 4.0);
 
 // Alpha Tauri
-            allTeams.get(8).addPlayer("Yuki Tsunoda", 22, 75, 1.5);
-            allTeams.get(8).addPlayer("Daniel Ricciardo", 03, 115, 8.0); // Ricciardo replaced Nyck de Vries mid-season
+        allTeams.get(7).addPlayer("Yuki Tsunoda", 22, 75, 1.5);
+        allTeams.get(7).addPlayer("Daniel Ricciardo", 03, 115, 8.0); // Ricciardo replaced Nyck de Vries mid-season
 
 // Alpine
-            allTeams.get(9).addPlayer("Esteban Ocon", 31, 145, 10.0);
-            allTeams.get(9).addPlayer("Pierre Gasly", 10, 150, 12.0);
+        allTeams.get(8).addPlayer("Esteban Ocon", 31, 145, 10.0);
+        allTeams.get(8).addPlayer("Pierre Gasly", 10, 150, 12.0);
+
+
+
+        //Red Bull
+        allTeams.get(9).addPlayer("Max Verstappen", 01, 398, 22.3);
+        allTeams.get(9).addPlayer("Sergio Perez",11,200,15.4 );
+        while (true) {
+
+
 
             System.out.println("Press 1 to print all teams\nPress 2 to calculate the average team value\nPress 3 to view spot in the field\nPress 4 to update team stats\nPress 5 to sort teams by position\nPress 6 to display players\nPress 7 to display all team info\nPress 8 to update player stats\nPress 9 to save and exit");
             int choice = Library.input.nextInt();
