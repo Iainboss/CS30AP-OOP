@@ -44,7 +44,7 @@ pitTime = pT;
     }
 
 public void updateStats(){
-System.out.println("What stat would you like to update? Press 1 for name, 2 for location, 3 for world championships or 4 for team value");
+System.out.println("What stat would you like to update? Press 1 for name, 2 for location, 3 for world championships or 4 for team value, 5 for pit stop time");
 int answer = Library.input.nextInt();
 Library.input.nextLine();
 if(answer ==1){
@@ -62,6 +62,7 @@ else if( answer == 2){
 else if(answer ==3){
     System.out.println("You are updating the number of world championships for this team. They currently have " + championships + " how many do they have now?");
     int newChampionships = Library.input.nextInt();
+    Library.input.nextLine();
     System.out.println(name + " now has " + newChampionships + " championships");
     championships = newChampionships;
 }
@@ -70,8 +71,14 @@ else if(answer ==4){
     double newValue = Library.input.nextDouble();
     System.out.println(name + " is now worth " + newValue + " billion dollars");
     value = newValue;
-
-
+}
+else if(answer ==5){
+    System.out.println("You are updating the pit time, current time is " + pitTime + "s. New time?");
+    double newTime = Library.input.nextDouble();
+    System.out.println(name + "'s pit time is now " + newTime + "s");
+    pitTime = newTime;
+}else {
+    System.out.println("No option selected.");
 }
 
 
@@ -145,4 +152,5 @@ public void printStandings(){
     public ArrayList<As2_Player> getAllPlayers() {
         return allPlayers;
     }
+
 }//Team
