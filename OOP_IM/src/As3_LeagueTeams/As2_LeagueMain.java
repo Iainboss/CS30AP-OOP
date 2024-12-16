@@ -17,6 +17,19 @@ public class As2_LeagueMain {
 
 
 
+            allTeams.add(new As2_Team("Scuderia Ferrari", "Maranello - ITA", "Top Field", 3, 16, 3.13, 2.90));
+            allTeams.add(new As2_Team("Mercedes AMG", "Brackley - UK", "Top Field", 2, 8, 2.7, 3.18));
+            allTeams.add(new As2_Team("McLaren F1", "Woking - UK", "Mid-Top Field", 4, 8, 1.56, 2.91));
+            allTeams.add(new As2_Team("Aston Martin Racing", "Silverstone - UK", "Mid Field", 5, 0, 1.14, 3.08));
+            allTeams.add(new As2_Team("Williams Racing", "Oxford - IK", "Bottom Field", 7, 9, 0.795, 3.28));
+            allTeams.add(new As2_Team("Haas", "Kannapolis - US", "Bottom Field", 10, 0, 0.710, 4.22));
+            allTeams.add(new As2_Team("Alfa Romeo", "Hinwil - CH", "Bottom Field", 9, 0, 0.815, 3.51));
+            allTeams.add(new As2_Team("AlphaTauri", "Faenza - ITA", "Bottom Field", 8, 0, 0.905, 3.23));
+            allTeams.add(new As2_Team("Alpine F1", "Enstone - UK", "Mid Field", 6, 2, 1.08, 3.19));
+            allTeams.add(new As2_Team("Red Bull Racing", "Milton Keynes - UK", "Top Field", 1, 5, 2.42, 2.64));
+
+
+
 // Ferrari
         allTeams.get(0).addPlayer("Charles Leclerc", 16, 200, 12.0);
         allTeams.get(0).addPlayer("Carlos Sainz Jr.", 55, 190, 8.0);
@@ -227,9 +240,7 @@ public class As2_LeagueMain {
 
                         }else{
                             allTeams.get(foundTeam).printPlayers();
-                        System.out.println("What is the name of the player you're looking for?");
-                        String player = Library.input.nextLine();
-                     System.out.println("Not working yet.");
+                      allTeams.get(foundTeam).playerStats();
                         }
             }
 if(choice==9){

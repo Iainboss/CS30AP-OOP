@@ -84,6 +84,20 @@ else if(answer ==5){
 
 }
 
+public void playerStats(){
+    System.out.println("What is the player ID of the player you want to update the stats for?");
+    int findplayerID = Library.input.nextInt();
+    Library.input.nextLine();
+    for (int i = 0; i < allPlayers.size(); i++) {
+        if(allPlayers.get(i).getPlayerID()==findplayerID){
+            allPlayers.get(i).changePlayerStats();
+        }
+        else{
+            System.out.println("No player found.");
+        }
+    }
+}
+
 public void printStandings(){
     System.out.println(position + " " + name);
 }
